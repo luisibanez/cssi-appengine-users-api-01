@@ -359,6 +359,67 @@ class MyHandler(webapp2.RequestHandler):
 					</a>
 				</section>
 
+				<section>
+					<h1>Giphy API</h1>
+					<h3>from AppEngine</h3>
+				</section>
+
+				<section>
+					<h3>urlfetch</h3>
+					<h3>Client Library</h3>
+					<div class="fragment">
+					<pre><code>
+from google.appengine.api import urlfetch
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code>
+data_source = urlfetch.fetch(url)
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code>
+json_content = data_source.content
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>All Together</h3>
+					<div class="fragment">
+					<pre><code>
+from google.appengine.apis import urlfetch
+					</code></pre>
+					</div>
+
+					<div class="fragment">
+					<pre><code>
+    giphy_data_source = urlfetch.fetch("http://api.giphy.com/v1/gifs/search?q=+ryan+goslin&api_key=dc6zaTOxFJmzC&limit=10")
+    giphy_json_content = giphy_data_source.content
+					</code></pre>
+					</div>
+
+					<div class="fragment">
+					<pre><code>
+    parsed_giphy_dictionary = json.loads(giphy_json_content)
+					</code></pre>
+					</div>
+
+					<div class="fragment">
+					<pre><code>
+    gif_url= parsed_giphy_dictionary['data'][0]['images']['original']['url']
+					</code></pre>
+					</div>
+
+					<div class="fragment">
+					<pre><code>
+    self.response.write(gif_url)
+					</code></pre>
+					</div>
+				</section>
+
+
+
 
 			</div>
 
