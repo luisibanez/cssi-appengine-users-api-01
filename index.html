@@ -131,17 +131,17 @@
 				<section>
 					<h3>Python Client Library</h3>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 from google.appengine.api import users
 					</code></pre>
 					</div>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 my_user = users.get_current_user()
 					</code></pre>
 					</div>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 nick_name = my_user.nickname()
 					</code></pre>
 					</div>
@@ -150,12 +150,12 @@ nick_name = my_user.nickname()
 				<section>
 					<h3>Login / logout</h3>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 url_in = users.create_login_url()
 					</code></pre>
 					</div>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 url_out = users.create_logout_url()
 					</code></pre>
 					</div>
@@ -164,7 +164,7 @@ url_out = users.create_logout_url()
 				<section>
 					<h3>All Together</h3>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 from google.appengine.apis import users
 
 my_user = users.get_current_user()
@@ -172,7 +172,7 @@ my_user = users.get_current_user()
 					</div>
 
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 if my_user:
     greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
                (my_user.nickname(), users.create_logout_url('/')))
@@ -183,7 +183,7 @@ else:
 					</div>
 
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 self.response.out.write(greeting)
 					</code></pre>
 					</div>
@@ -192,7 +192,7 @@ self.response.out.write(greeting)
 				<section>
 					<h3>In AppEngine</h3>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 from google.appengine.api import users
 import webapp2
 class MyHandler(webapp2.RequestHandler):
@@ -242,7 +242,7 @@ class MyHandler(webapp2.RequestHandler):
 
                 <section>
                     <h2>JSON</h2>
-                    <pre><code>
+                    <pre><code class="language-json">
 "students":[
   {"firstName":"John", "lastName":"Doe",   "email":"jd@gmail.com"},
   {"firstName":"Anna", "lastName":"Smith", "email":"aj@gmail.com"},
@@ -283,7 +283,7 @@ class MyHandler(webapp2.RequestHandler):
 
 				<section>
                     <h2>Giphy Response</h2>
-                    <pre><code>
+                    <pre><code class="language-python">
 {"meta":{"status":403,"msg":"Forbidden"}}
                     </code></pre>
                     <h3>No Cat for You!</h3>
@@ -337,7 +337,7 @@ class MyHandler(webapp2.RequestHandler):
 
                 <section>
                     <h2>Giphy Response</h2>
-                    <pre><code>
+                    <pre><code class="language-json">
 {"data":[
   {"type":"gif",
     "id":"FiGiRei2ICzzG",
@@ -365,21 +365,25 @@ class MyHandler(webapp2.RequestHandler):
 				</section>
 
 				<section>
-					<h3>urlfetch</h3>
-					<h3>Client Library</h3>
+					<h3>urlfetch - Client Library</h3>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 from google.appengine.api import urlfetch
 					</code></pre>
 					</div>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 data_source = urlfetch.fetch(url)
 					</code></pre>
 					</div>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 json_content = data_source.content
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code class="language-python">
+parsed_dictionary = json.loads(json_content)
 					</code></pre>
 					</div>
 				</section>
@@ -387,32 +391,47 @@ json_content = data_source.content
 				<section>
 					<h3>All Together</h3>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
 from google.appengine.apis import urlfetch
 					</code></pre>
 					</div>
-
 					<div class="fragment">
-					<pre><code>
-    giphy_data_source = urlfetch.fetch("http://api.giphy.com/v1/gifs/search?q=+ryan+goslin&api_key=dc6zaTOxFJmzC&limit=10")
+					<pre><code class="language-python">
+    url = "http://api.giphy.com/v1/gifs/search?q="
+    query = "+ryan+goslin"
+    auth = "&api_key=dc6zaTOxFJmzC&limit=10"
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code class="language-python">
+    giphy_data_source = urlfetch.fetch(url+query+auth)
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code class="language-python">
     giphy_json_content = giphy_data_source.content
 					</code></pre>
 					</div>
+				</section>
 
+				<section>
+					<h3>All Together</h3>
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
     parsed_giphy_dictionary = json.loads(giphy_json_content)
 					</code></pre>
 					</div>
-
 					<div class="fragment">
-					<pre><code>
-    gif_url= parsed_giphy_dictionary['data'][0]['images']['original']['url']
+					<pre><code class="language-python">
+    gif_images = parsed_giphy_dictionary['data'][0]['images']
+					</code></pre>
+					<div class="fragment">
+					<pre><code class="language-python">
+    gif_url= gif_images['original']['url']
 					</code></pre>
 					</div>
-
 					<div class="fragment">
-					<pre><code>
+					<pre><code class="language-python">
     self.response.write(gif_url)
 					</code></pre>
 					</div>
