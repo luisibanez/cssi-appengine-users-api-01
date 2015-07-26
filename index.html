@@ -117,6 +117,79 @@
 					<p><a href="https://translate.google.com">https://translate.google.com</a></p>
 				</section>
 
+				<section>
+					<a href="#" class="image">
+					<img width="100%" src="https://cloud.google.com/images/articles/angularjs-cloud-endpoints-recipe/cloud-endpoints.jpg" alt="Diagram of interactions between servers and clients via APIs">
+					</a>
+				</section>
+
+				<section>
+					<h1>Users API</h1>
+					<h3>Authentication in AppEngine</h3>
+				</section>
+
+				<section>
+					<h3>Python Client Library</h3>
+					<div class="fragment">
+					<pre><code>
+from google.appengine.api import users
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code>
+my_user = users.get_current_user()
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code>
+nick_name = my_user.nickname()
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>Login / logout</h3>
+					<div class="fragment">
+					<pre><code>
+url_in = users.create_login_url()
+					</code></pre>
+					</div>
+					<div class="fragment">
+					<pre><code>
+url_out = users.create_logout_url()
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h3>All Together</h3>
+					<div class="fragment">
+					<pre><code>
+from google.appengine.apis import users
+
+my_user = users.get_current_user()
+					</code></pre>
+					</div>
+
+					<div class="fragment">
+					<pre><code>
+if my_user:
+    greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
+               (my_user.nickname(), users.create_logout_url('/')))
+else:
+    greeting = ('<a href="%s">Sign in or register</a>.' %
+               users.create_login_url('/'))
+					</code></pre>
+					</div>
+
+					<div class="fragment">
+					<pre><code>
+self.response.out.write(greeting)
+					</code></pre>
+					</div>
+				</section>
+
+
 			</div>
 
 		</div>
