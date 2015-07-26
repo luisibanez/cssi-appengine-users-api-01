@@ -211,12 +211,17 @@ class MyHandler(webapp2.RequestHandler):
 				</section>
 
 				<section>
+					<h1>Exercise !</h1>
+				</section>
+
+				<section>
 					<p><a href="https://learn.co/tracks/google-cssi/8-app-engine-api-s-datastore/apis/cssi-8-1-appengine-api">User API Lab</a></p>
 				</section>
 
 				<section>
                     <h3>Using APIs</h3>
                     <ul>
+                        <li class="fragment">Read documentation</li>
                         <li class="fragment">Prepare request</li>
                         <li class="fragment">Invoke API</li>
                         <li class="fragment">Process response</li>
@@ -228,6 +233,116 @@ class MyHandler(webapp2.RequestHandler):
                     <p>(almost...)</p>
                     <h3>Everywhere!</h3>
 				</section>
+
+				<section>
+                    <h2>JSON</h2>
+                    <p>JavaScript Object Notation</p>
+                    <p><a href="http://json.org/">http://json.org/</a></p>
+				</section>
+
+                <section>
+                    <h2>JSON</h2>
+                    <pre><code>
+"students":[
+  {"firstName":"John", "lastName":"Doe",   "email":"jd@gmail.com"},
+  {"firstName":"Anna", "lastName":"Smith", "email":"aj@gmail.com"},
+  {"firstName":"Peter","lastName":"Jones", "email":"pj@gmail.com"}
+]
+                    </code></pre>
+                </section>
+
+				<section>
+                    <h2>JSON Object</h2>
+					<a href="#" class="image">
+					<img width="100%" style="background-color:white" src="http://json.org/object.gif" alt="Grammar diagram of JSON object.">
+					</a>
+				</section>
+
+				<section>
+                    <h2>JSON Array</h2>
+					<a href="#" class="image">
+					<img width="100%" style="background-color:white" src="http://json.org/array.gif" alt="Grammar diagram of JSON array.">
+					</a>
+				</section>
+
+				<section>
+					<h1>Exercise !</h1>
+				</section>
+
+				<section>
+					<h1>Giphy</h1>
+					<h1>API</h1>
+                    <p><a href="https://api.giphy.com/">https://api.giphy.com</a></p>
+				</section>
+
+				<section>
+                    <h2>Giphy Call</h2>
+                    <p>Can Please Haz Funny Cat?</p>
+                    <p><a href="http://api.giphy.com/v1/gifs/search?q=funny+cat">http://api.giphy.com/v1/gifs/search?q=funny+cat</a></p>
+				</section>
+
+				<section>
+                    <h2>Giphy Response</h2>
+                    <pre><code>
+{"meta":{"status":403,"msg":"Forbidden"}}
+                    </code></pre>
+                    <p>No Cat for You!</p>
+				</section>
+
+				<section>
+                    <h1>404</h1>
+                    <p class="fragment">Page Not Found</p>
+                    <p class="fragment">
+                    <a href="https://en.wikipedia.org/wiki/HTTP_404">https://en.wikipedia.org/wiki/HTTP_404</a>
+                    </p>
+				</section>
+
+				<section>
+                    <h1>403</h1>
+                    <p class="fragment">Forbidden</p>
+                    <p class="fragment">
+                    <a href="https://en.wikipedia.org/wiki/HTTP_403">https://en.wikipedia.org/wiki/HTTP_403</a>
+                    </p>
+				</section>
+
+				<section>
+                    <h2>Giphy Call</h2>
+                    <p>Can Please Haz Funny Cat?</p>
+                    <p class="fragment">I Haz Key !</p>
+                    <p class="fragment">api_key = dc6zaTOxFJmzC</p>
+                    <p class="fragment"><a href="http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC">http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC</a></p>
+				</section>
+
+				<section>
+                    <h2>Giphy - API Key</h2>
+                    <p class="fragment">Read the Documentation!</p>
+                    <p class="fragment"><a href="https://github.com/Giphy/GiphyAPI">https://github.com/Giphy/GiphyAPI</a><p>
+				</section>
+
+                <section>
+                    <h2>Giphy Response</h2>
+                    <pre><code>
+{"data":[
+  {"type":"gif",
+    "id":"FiGiRei2ICzzG",
+    "url":"http:\/\/giphy.com\/gifs\/funny-cat-FiGiRei2ICzzG",
+    "bitly_gif_url":"http:\/\/gph.is\/1fIdLOl",
+    "bitly_url":"http:\/\/gph.is\/1fIdLOl",
+    "embed_url":"http:\/\/giphy.com\/embed\/FiGiRei2ICzzG",
+    "username":"",
+    "source":"http:\/\/tumblr.com",
+    "rating":"g",
+  ...
+                      </code></pre>
+                </section>
+
+				<section>
+                    <h2>Gimme a Break!</h2>
+					<a href="#" class="image">
+					<img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/9/95/CatVibrissaeFullFace.JPG" alt="Cat's face">
+					</a>
+				</section>
+
 
 			</div>
 
