@@ -1,198 +1,198 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>AppEngine and Users API</title>
+        <title>AppEngine and Users API</title>
 
-		<meta name="description" content="Introduction to Users API in AppEngine">
-		<meta name="author" content="Luis Ibanez">
+        <meta name="description" content="Introduction to Users API in AppEngine">
+        <meta name="author" content="Luis Ibanez">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-	<body>
+    <body>
 
-		<div class="reveal">
+        <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Users API</h1>
-					<h3>Authentication in AppEngine</h3>
-					<p>
-						<small>Created by <a href="https://github.com/luisibanezcssi">Luis Ibanez</a> / <a href="http://twitter.com/luisibanez">@luisibanez</a></small>
-					</p>
-				</section>
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>Users API</h1>
+                    <h3>Authentication in AppEngine</h3>
+                    <p>
+                        <small>Created by <a href="https://github.com/luisibanezcssi">Luis Ibanez</a> / <a href="http://twitter.com/luisibanez">@luisibanez</a></small>
+                    </p>
+                </section>
 
-				<section>
-					<h1>Why</h1>
-					<h1>APIs?</h1>
-				</section>
+                <section>
+                    <h1>Why</h1>
+                    <h1>APIs?</h1>
+                </section>
 
-				<section>
-					<a href="#" class="image">
-					<img width="100%" src="https://cloud.google.com/images/articles/angularjs-cloud-endpoints-recipe/cloud-endpoints.jpg
+                <section>
+                    <a href="#" class="image">
+                    <img width="100%" src="https://cloud.google.com/images/articles/angularjs-cloud-endpoints-recipe/cloud-endpoints.jpg
 " alt="Diagram of interactions between servers and clients via APIs">
-					</a>
-				</section>
+                    </a>
+                </section>
 
-				<section>
-					<a href="#" class="image">
-					<img width="100%" src="http://1.bp.blogspot.com/-o2QeGHlrI-s/T700EKXFE7I/AAAAAAAABjQ/Wfzs5d7UPJs/s1600/explorer.png" alt="Screenshot of the Google API Explorer page">
-					</a>
-				</section>
+                <section>
+                    <a href="#" class="image">
+                    <img width="100%" src="http://1.bp.blogspot.com/-o2QeGHlrI-s/T700EKXFE7I/AAAAAAAABjQ/Wfzs5d7UPJs/s1600/explorer.png" alt="Screenshot of the Google API Explorer page">
+                    </a>
+                </section>
 
-				<section>
-					<p><a href="https://developers.google.com/apis-explorer">https://developers.google.com/apis-explorer</a></p>
-				</section>
+                <section>
+                    <p><a href="https://developers.google.com/apis-explorer">https://developers.google.com/apis-explorer</a></p>
+                </section>
 
-				<section>
-					<h1>Exercise !</h1>
-				</section>
+                <section>
+                    <h1>Exercise !</h1>
+                </section>
 
-				<section>
-					<p>In API Explorer</p>
-					<p>Search for "translate"</p>
-				</section>
+                <section>
+                    <p>In API Explorer</p>
+                    <p>Search for "translate"</p>
+                </section>
 
-				<section>
-					<p>Select</p>
-					<p>language.translation.list</p>
-				</section>
+                <section>
+                    <p>Select</p>
+                    <p>language.translation.list</p>
+                </section>
 
-				<section>
-					<h2>Write</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Field</th>
-								<th>|</th>
-								<th>Value</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>q</td>
-								<td>|</td>
-								<td>Where are the zombies?</td>
-							</tr>
-							<tr>
-								<td>target</td>
-								<td>|</td>
-								<td>fr</td>
-							</tr>
-						<tbody>
-					</table>
-				</section>
+                <section>
+                    <h2>Write</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>|</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>q</td>
+                                <td>|</td>
+                                <td>Where are the zombies?</td>
+                            </tr>
+                            <tr>
+                                <td>target</td>
+                                <td>|</td>
+                                <td>fr</td>
+                            </tr>
+                        <tbody>
+                    </table>
+                </section>
 
-				<section>
-					<h2>Execute</h2>
-				</section>
+                <section>
+                    <h2>Execute</h2>
+                </section>
 
-				<section>
-					<p><a href="https://translate.google.com">https://translate.google.com</a></p>
-				</section>
+                <section>
+                    <p><a href="https://translate.google.com">https://translate.google.com</a></p>
+                </section>
 
-				<section>
-					<a href="#" class="image">
-					<img width="100%" src="https://cloud.google.com/images/articles/angularjs-cloud-endpoints-recipe/cloud-endpoints.jpg" alt="Diagram of interactions between servers and clients via APIs">
-					</a>
-				</section>
+                <section>
+                    <a href="#" class="image">
+                    <img width="100%" src="https://cloud.google.com/images/articles/angularjs-cloud-endpoints-recipe/cloud-endpoints.jpg" alt="Diagram of interactions between servers and clients via APIs">
+                    </a>
+                </section>
 
-				<section>
-					<h1>Users API</h1>
-					<h3>Authentication in AppEngine</h3>
-				</section>
+                <section>
+                    <h1>Users API</h1>
+                    <h3>Authentication in AppEngine</h3>
+                </section>
 
-				<section>
-					<h3>Python Client Library</h3>
-					<div class="fragment">
-					<pre><code class="language-python">
+                <section>
+                    <h3>Python Client Library</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 from google.appengine.api import users
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 my_user = users.get_current_user()
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 nick_name = my_user.nickname()
-					</code></pre>
-					</div>
-				</section>
+                    </code></pre>
+                    </div>
+                </section>
 
-				<section>
-					<h3>Login / logout</h3>
-					<div class="fragment">
-					<pre><code class="language-python">
+                <section>
+                    <h3>Login / logout</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 url_in = users.create_login_url()
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 url_out = users.create_logout_url()
-					</code></pre>
-					</div>
-				</section>
+                    </code></pre>
+                    </div>
+                </section>
 
-				<section>
-					<h3>All Together</h3>
-					<div class="fragment">
-					<pre><code class="language-python">
+                <section>
+                    <h3>All Together</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 from google.appengine.apis import users
 
 my_user = users.get_current_user()
-					</code></pre>
-					</div>
+                    </code></pre>
+                    </div>
 
-					<div class="fragment">
-					<pre><code class="language-python">
+                    <div class="fragment">
+                    <pre><code class="language-python">
 if my_user:
     greeting = ('Welcome, %s! (<a href="%s">sign out</a>)' %
                (my_user.nickname(), users.create_logout_url('/')))
 else:
     greeting = ('<a href="%s">Sign in or register</a>.' %
                users.create_login_url('/'))
-					</code></pre>
-					</div>
+                    </code></pre>
+                    </div>
 
-					<div class="fragment">
-					<pre><code class="language-python">
+                    <div class="fragment">
+                    <pre><code class="language-python">
 self.response.out.write(greeting)
-					</code></pre>
-					</div>
-				</section>
+                    </code></pre>
+                    </div>
+                </section>
 
-				<section>
-					<h3>In AppEngine</h3>
-					<div class="fragment">
-					<pre><code class="language-python">
+                <section>
+                    <h3>In AppEngine</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 from google.appengine.api import users
 import webapp2
 class MyHandler(webapp2.RequestHandler):
@@ -206,19 +206,19 @@ class MyHandler(webapp2.RequestHandler):
                         users.create_login_url('/'))
 
         self.response.out.write('<html><body>%s</body></html>' % greeting)
-					</code></pre>
-					</div>
-				</section>
+                    </code></pre>
+                    </div>
+                </section>
 
-				<section>
-					<h1>Exercise !</h1>
-				</section>
+                <section>
+                    <h1>Exercise !</h1>
+                </section>
 
-				<section>
-					<p><a href="https://learn.co/tracks/google-cssi/8-app-engine-api-s-datastore/apis/cssi-8-1-appengine-api">User API Lab</a></p>
-				</section>
+                <section>
+                    <p><a href="https://learn.co/tracks/google-cssi/8-app-engine-api-s-datastore/apis/cssi-8-1-appengine-api">User API Lab</a></p>
+                </section>
 
-				<section>
+                <section>
                     <h3>Using APIs</h3>
                     <ul>
                         <li class="fragment">Read documentation</li>
@@ -226,19 +226,19 @@ class MyHandler(webapp2.RequestHandler):
                         <li class="fragment">Invoke API</li>
                         <li class="fragment">Process response</li>
                     </ul>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h2>JSON</h2>
                     <p>(almost...)</p>
                     <h3>Everywhere!</h3>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h2>JSON</h2>
                     <p>JavaScript Object Notation</p>
                     <p><a href="http://json.org/">http://json.org/</a></p>
-				</section>
+                </section>
 
                 <section>
                     <h2>JSON</h2>
@@ -251,89 +251,89 @@ class MyHandler(webapp2.RequestHandler):
                     </code></pre>
                 </section>
 
-				<section>
+                <section>
                     <h2>JSON Object</h2>
-					<a href="#" class="image">
-					<img width="100%" style="background-color:white" src="http://json.org/object.gif" alt="Grammar diagram of JSON object.">
-					</a>
-				</section>
+                    <a href="#" class="image">
+                    <img width="100%" style="background-color:white" src="http://json.org/object.gif" alt="Grammar diagram of JSON object.">
+                    </a>
+                </section>
 
-				<section>
+                <section>
                     <h2>JSON Array</h2>
-					<a href="#" class="image">
-					<img width="100%" style="background-color:white" src="http://json.org/array.gif" alt="Grammar diagram of JSON array.">
-					</a>
-				</section>
+                    <a href="#" class="image">
+                    <img width="100%" style="background-color:white" src="http://json.org/array.gif" alt="Grammar diagram of JSON array.">
+                    </a>
+                </section>
 
-				<section>
-					<h1>Exercise !</h1>
-				</section>
+                <section>
+                    <h1>Exercise !</h1>
+                </section>
 
-				<section>
-					<h1>Giphy</h1>
-					<h1>API</h1>
+                <section>
+                    <h1>Giphy</h1>
+                    <h1>API</h1>
                     <p><a href="https://api.giphy.com/">https://api.giphy.com</a></p>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h2>Giphy Call</h2>
                     <p>Can Please Haz Funny Cat?</p>
                     <p><a href="http://api.giphy.com/v1/gifs/search?q=funny+cat">http://api.giphy.com/v1/gifs/search?q=funny+cat</a></p>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h2>Giphy Response</h2>
                     <pre><code class="language-python">
 {"meta":{"status":403,"msg":"Forbidden"}}
                     </code></pre>
                     <h3>No Cat for You!</h3>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h1>404</h1>
                     <p class="fragment">Page Not Found</p>
                     <p class="fragment">
                     <a href="https://en.wikipedia.org/wiki/HTTP_404">https://en.wikipedia.org/wiki/HTTP_404</a>
                     </p>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h1>403</h1>
                     <p class="fragment">Forbidden</p>
                     <p class="fragment">
                     <a href="https://en.wikipedia.org/wiki/HTTP_403">https://en.wikipedia.org/wiki/HTTP_403</a>
                     </p>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h1>401</h1>
                     <p class="fragment">Unauthorized</p>
                     <p class="fragment">
                     <a href="https://en.wikipedia.org/wiki/HTTP_401">https://en.wikipedia.org/wiki/HTTP_401</a>
                     </p>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h1>200</h1>
                     <p class="fragment">Success!</p>
                     <p class="fragment">
                     <a href="https://en.wikipedia.org/wiki/HTTP_200">https://en.wikipedia.org/wiki/HTTP_200</a>
                     </p>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h2>Giphy Call</h2>
                     <p>Can Please Haz Funny Cat?</p>
                     <p class="fragment">I Haz Key !</p>
                     <p class="fragment">api_key = dc6zaTOxFJmzC</p>
                     <p class="fragment"><a href="http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC">http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC</a></p>
-				</section>
+                </section>
 
-				<section>
+                <section>
                     <h2>Giphy - API Key</h2>
                     <p class="fragment">Read the Documentation!</p>
                     <p class="fragment"><a href="https://github.com/Giphy/GiphyAPI">https://github.com/Giphy/GiphyAPI</a><p>
-				</section>
+                </section>
 
                 <section>
                     <h2>Giphy Response</h2>
@@ -352,107 +352,107 @@ class MyHandler(webapp2.RequestHandler):
                       </code></pre>
                 </section>
 
-				<section>
+                <section>
                     <h2>Gimme a Break!</h2>
-					<a href="#" class="image">
-					<img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/9/95/CatVibrissaeFullFace.JPG" alt="Cat's face">
-					</a>
-				</section>
+                    <a href="#" class="image">
+                    <img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/9/95/CatVibrissaeFullFace.JPG" alt="Cat's face">
+                    </a>
+                </section>
 
-				<section>
-					<h1>Giphy API</h1>
-					<h3>from AppEngine</h3>
-				</section>
+                <section>
+                    <h1>Giphy API</h1>
+                    <h3>from AppEngine</h3>
+                </section>
 
-				<section>
-					<h3>urlfetch - Client Library</h3>
-					<div class="fragment">
-					<pre><code class="language-python">
+                <section>
+                    <h3>urlfetch - Client Library</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 from google.appengine.api import urlfetch
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 data_source = urlfetch.fetch(url)
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 json_content = data_source.content
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 parsed_dictionary = json.loads(json_content)
-					</code></pre>
-					</div>
-				</section>
+                    </code></pre>
+                    </div>
+                </section>
 
-				<section>
-					<h3>All Together</h3>
-					<div class="fragment">
-					<pre><code class="language-python">
+                <section>
+                    <h3>All Together</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
 from google.appengine.apis import urlfetch
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     url = "http://api.giphy.com/v1/gifs/search?"
     query = "q=+ryan+goslin"
     auth = "&api_key=dc6zaTOxFJmzC&limit=10"
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     giphy_data_source = urlfetch.fetch(url+query+auth)
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     giphy_json_content = giphy_data_source.content
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     self.response.write(giphy_json_content)
-					</code></pre>
-					</div>
-				</section>
+                    </code></pre>
+                    </div>
+                </section>
 
-				<section>
-					<h3>All Together</h3>
-					<div class="fragment">
-					<pre><code class="language-python">
+                <section>
+                    <h3>All Together</h3>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     parsed_giphy_dictionary = json.loads(giphy_json_content)
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     gif_images = parsed_giphy_dictionary['data'][0]['images']
-					</code></pre>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     gif_url= gif_images['original']['url']
-					</code></pre>
-					</div>
-					<div class="fragment">
-					<pre><code class="language-python">
+                    </code></pre>
+                    </div>
+                    <div class="fragment">
+                    <pre><code class="language-python">
     self.response.write(gif_url)
-					</code></pre>
-					</div>
-				</section>
+                    </code></pre>
+                    </div>
+                </section>
 
-				<section>
-					<h2>Challenge</h2>
+                <section>
+                    <h2>Challenge</h2>
                     <div class="fragment">
                     <p>Return a minimal HTML page</p>
                     <p>that displays the image</p>
                     <p>using the 'img' tag.</p>
                     </div>
-				</section>
+                </section>
 
-				<section>
-					<h2>Challenge</h2>
+                <section>
+                    <h2>Challenge</h2>
                     <div class="fragment">
                     <p>Get the search term from the URL</p>
                     </div>
@@ -461,45 +461,45 @@ from google.appengine.apis import urlfetch
 search_term = self.request.get('term')
                     </code></pre>
                     </div>
-				</section>
+                </section>
 
-				<section>
-					<a href="#" class="image">
-					<img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Kittyply_edit1.jpg/640px-Kittyply_edit1.jpg" alt="Cat's face ending chapter">
-					</a>
+                <section>
+                    <a href="#" class="image">
+                    <img width="80%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Kittyply_edit1.jpg/640px-Kittyply_edit1.jpg" alt="Cat's face ending chapter">
+                    </a>
                     <p>Use APIs Wisely!</p>
-				</section>
-			</div>
+                </section>
+            </div>
 
-		</div>
+        </div>
 
-		<script src="reveal.js/lib/js/head.min.js"></script>
-		<script src="reveal.js/js/reveal.js"></script>
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
 
-		<script>
+        <script>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-					{ src: 'reveal.js/plugin/notes/notes.js', async: true }
-				]
-			});
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true }
+                ]
+            });
 
-		</script>
+        </script>
 
-	</body>
+    </body>
 </html>
