@@ -214,6 +214,8 @@ self.response.out.write(greeting)
                     <pre><code class="language-python">
 from google.appengine.api import users
 import webapp2
+
+
 class MyHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
